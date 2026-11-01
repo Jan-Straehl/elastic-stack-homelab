@@ -840,8 +840,16 @@ Aus Zeitgründen wurden folgende Sicherheitsmassnahmen in dieser Testumgebung ni
 - Restriktive Datei- und Verzeichnisberechtigungen mit passenden Besitzern für jeden Dienst.
 - Verschlüsselung der Datenträger (z. B. LUKS).
 - SSH-Zugriff ausschliesslich über SSH-Schlüssel statt Passwortauthentifizierung.
+- HTTPS für Weboberflächen: Die Weboberflächen von Kibana und MinIO konsequent über HTTPS mit gültigen TLS-Zertifikaten absichern.
+- Zentrale Zertifikatsverwaltung: Die bereits verwendete interne Certificate Authority (CA) für alle Komponenten einsetzen, Zertifikate zentral signieren und deren Erneuerung verwalten.
+- DNS statt IP-Adressen: Für die Dienste eindeutige Hostnamen verwenden und entsprechende DNS-Einträge auf dem DNS-Server konfigurieren. Die Hostnamen müssen auch in den TLS-Zertifikaten hinterlegt sein.
+- Mutual TLS (mTLS): Die Kommunikation zwischen Elastic Agents und Fleet Server zusätzlich durch gegenseitige Zertifikatsauthentifizierung absichern. Dabei muss sich nicht nur der Fleet Server gegenüber dem Agent, sondern auch der Agent mit einem gültigen Client-Zertifikat gegenüber dem Fleet Server authentifizieren.
+- Separate Administrationsbenutzer: Für die Administration des Linux-Servers persönliches Benutzerkonto mit gezielt vergebenen sudo-Berechtigungen verwenden.
 
-In einer produktiven Umgebung würde ich diese Massnahmen zur Verbesserung der Systemsicherheit umsetzen.
+- Docker-Ressourcen: RAM-Limits und gegebenenfalls CPU-Limits der einzelnen Container anhand des tatsächlichen Ressourcenverbrauchs und der erwarteten Last dimensionieren.
+- Frozen Tier Shared Cache: Die Grösse des Shared Cache abhängig von Datenvolumen, Suchhäufigkeit und verfügbarem SSD-Speicher festlegen, statt einen festen Wert von 2 GB zu verwenden.
+
+In einer produktiven Umgebung würde ich diese Massnahmen zur Verbesserung der Performance und Systemsicherheit umsetzen.
 
 ## Verwendete Anleitungen und Quellen
 
