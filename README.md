@@ -852,7 +852,27 @@ Aus Zeitgründen wurden folgende Sicherheitsmassnahmen in dieser Testumgebung ni
 In einer produktiven Umgebung würde ich diese Massnahmen zur Verbesserung der Performance und Systemsicherheit umsetzen.
 
 ## Verwendete Anleitungen und Quellen
+### Grundlage
+- [Docker: Installation auf Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
+### Teil 1
 - [Elastic: Docker Compose Installation](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose)
-- [Red Hat: Hinweise zur MinIO-Image-Verfügbarkeit](https://access.redhat.com/solutions/7148629)
-- [Chainguard: MinIO-Container-Image](https://images.chainguard.dev/directory/image/minio/overview)
+- [Elastic: docker-compose.yml zum beginnen](https://github.com/elastic/elasticsearch/blob/main/docs/reference/setup/install/docker/docker-compose.yml)
+- [Elastic: .env zum beginnen](https://github.com/elastic/elasticsearch/blob/main/docs/reference/setup/install/docker/.env)
+- [Elastic: Konfiguration und die Rollen der Nodes](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles)
+
+### Teil 2
+- [Red Hat: Hinweis zur MinIO Verfügbarkeit](https://access.redhat.com/solutions/7148629)
+- [Chainguard: MinIO Image und Bereitstellung des S3-kompatiblen Snapshot-Speichers](https://images.chainguard.dev/directory/image/minio/overview)
+- [Elastic: Verbindung zu MinIO, S3-Konfiguration und Keystore-Zugangsdaten](https://www.elastic.co/docs/deploy-manage/tools/snapshot-and-restore/s3-repository)
+- [Elastic: Automatische tägliche Snapshots und 7 Tage Aufbewahrung](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-slm-put-lifecycle)
+- [Elastic: Verschiebung von Hot nach Frozen mittels Searchable Snapshots](https://www.elastic.co/docs/reference/elasticsearch/index-lifecycle-actions/ilm-searchable-snapshot)
+
+### Teil 3
+- [Elastic: Bereitstellung von Fleet Server und Elastic Agent](https://www.elastic.co/docs/reference/fleet/elastic-agent-container)
+- [Elastic: Konfiguration von Enrollment Token, Service Token und Fleet-URLs](https://www.elastic.co/docs/reference/fleet/agent-environment-variables)
+- [Elastic: TLS-Zertifikate, CA-Vertrauenskette und verschlüsselte Kommunikation](https://www.elastic.co/docs/reference/fleet/secure-connections)
+- [Elastic: Konfiguration des Kibana Encryption Keys für Fleet](https://www.elastic.co/docs/reference/kibana/configuration-reference/security-settings)
+
+### Teil 4
+- [Elastic: Erstellen, Zuweisen und Aktualisieren der Agent Policy Homelab Docker](https://www.elastic.co/docs/reference/fleet/agent-policy)
