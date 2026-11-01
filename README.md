@@ -143,7 +143,7 @@ GET /_cat/nodes?v
 
 ### 2. Shared Cache auf dem Frozen Node
 
-**Konfiguration für `es03` in Docker Compose:**
+**Konfiguration für `es03` in `docker-compose`:**
 
 ```yaml
 - xpack.searchable.snapshot.shared_cache.size=2GB
@@ -157,7 +157,7 @@ Der Shared Cache wurde für die Testumgebung auf **2 GB** begrenzt. Das ursprün
 
 Als S3-kompatibler Snapshot-Speicher wurde MinIO eingerichtet.
 
-**Docker-Compose-Erweiterung:**
+**`docker-compose.yml` Erweiterung:**
 - Image: `cgr.dev/chainguard/minio:latest`
 - Service: `minio`
 - Kommando: `server /data --console-address ":9001"`
@@ -490,7 +490,7 @@ FLEET_SERVER_SERVICE_TOKEN=<TOKEN>
 FLEET_SERVER_POLICY_ID=<POLICY_ID>
 ```
 
-**Docker-Compose-Erweiterung:**
+**`docker-compose.yml` Erweiterung:**
 
 ```yaml
 fleet-server:
@@ -544,7 +544,7 @@ Für den Agent wurde ein Enrollment Token erstellt und in `.env` hinterlegt:
 FLEET_AGENT_ENROLLMENT_TOKEN=<TOKEN>
 ```
 
-**Docker-Compose-Erweiterung:**
+**`docker-compose.yml` Erweiterung:**
 
 ```yaml
 elastic-agent:
