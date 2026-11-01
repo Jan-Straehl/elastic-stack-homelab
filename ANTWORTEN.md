@@ -1,4 +1,4 @@
-# Antworten zur Bewerberaufgabe – Elastic Stack
+# Antworten zur Bewerberaufgabe Elastic Stack
 
 ## Teil 1 – Cluster mit drei Nodes und Frozen Tier
 
