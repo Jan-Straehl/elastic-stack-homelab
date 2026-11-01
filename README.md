@@ -728,13 +728,41 @@ Die Antworten auf die Konfigurationsfragen, die API-Abfragen und deren Ergebniss
 
 ## Nachweise
 
-Die bisherigen Prüfbefehle und beobachteten Ergebnisse sind in den jeweiligen Teilen dokumentiert. Folgende Screenshots oder gespeicherte API-Ausgaben sind für die Abgabe noch einzufügen:
+Die wichtigsten Ergebnisse der Implementierung sind nachfolgend mit Screenshots dokumentiert. Weitere technische Prüfungen und API-Ausgaben befinden sich in den jeweiligen Dokumentationsteilen.
 
-- [ ] **Clusterstatus `green` und Node-Rollen** (Teil 1)
-- [ ] **Searchable Snapshot auf `es03` und erfolgreiche Suchabfrage** (Teil 2)
-- [ ] **Fleet Server und Elastic Agent in Kibana Fleet** (Teil 3)
-- [ ] **System- und Docker-Daten in Kibana Discover** (Teile 3 und 4)
-- [ ] **Weitere relevante API-Ausgaben** (insbesondere Teil 5)
+### Teil 1 – Elasticsearch-Cluster
+
+**Clusterstatus:** Der Elasticsearch-Cluster erreicht den Status `green` und umfasst drei Nodes.
+
+![Clusterstatus](screenshots/cluster-health.png)
+
+**Node-Rollen:** Übersicht der drei Elasticsearch-Nodes mit ihren zugewiesenen Rollen.
+
+![Node-Rollen](screenshots/cluster-role.png)
+
+### Teil 2 – Snapshots und Frozen Tier
+
+**Snapshots:** Erfolgreich erstellte Snapshots im MinIO-Snapshot-Repository.
+
+![Snapshots](screenshots/snapshots.png)
+
+**Searchable Snapshot:** Erfolgreiche Suchabfrage auf einem Frozen-Index.
+
+![Frozen Tier](screenshots/frozen.png)
+
+### Teil 3 – Fleet Server und Elastic Agent
+
+**Fleet:** Fleet Server und Elastic Agent sind erfolgreich registriert und melden den Status `Healthy`.
+
+![Fleet Agents](screenshots/fleet.png)
+
+**System-Metriken:** Kontinuierlich eingehende System-Metriken in Kibana Discover.
+
+![System-Metriken](screenshots/system-metrics.png)
+
+### Weitere Nachweise
+
+Die Konfiguration der Lifecycle-Policies, der Restore-Test, die Verteilung von Fleet Policies sowie die Abfragen der Elasticsearch-Einstellungen sind in den jeweiligen Dokumentationsteilen mit Befehlen und Ergebnissen beschrieben.
 
 ## Aufgetretene Probleme und Lösungen
 
