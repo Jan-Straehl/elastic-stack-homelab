@@ -98,15 +98,17 @@ docker compose version
 - **Security:** TLS und Authentifizierung aktiviert
 - **Konfigurationsdateien:** `docker-compose.yml` und `.env`
 
-In `.env` stehen unter anderem die Version, der Clustername und Zugangsdaten. Die Datei wird nicht ins Repository eingecheckt; `.env.example` enthält Platzhalter.
+Die Konfigurationsdateien `docker-compose.yml` und `.env` wurden aus GitLab heruntergeladen und anschliessend per SFTP in das Projektverzeichnis /home/elastic/elastic-stack auf dem Ubuntu-Host übertragen.
+
+Die `.env` enthält unter anderem die Elastic-Stack Version, den Clusternamen und die benötigten Zugangsdaten. Für die Abgabe wird stattdessen eine `.env.example` mit Platzhaltern bereitgestellt, damit keine Zugangsdaten veröffentlicht werden.
 
 ### Deployment
 
-```bash
-cd ~/elastic-stack
+Nach der Übertragung der Konfigurationsdateien wurden folgende Befehle auf dem Ubuntu-Host ausgeführt:
 
-# Lokale Umgebungsdatei vorbereiten und Werte ergänzen
-cp .env.example .env
+```bash
+# In das Projektverzeichnis wechseln
+cd /home/elastic/elastic-stack
 
 # Compose-Konfiguration prüfen
 docker compose config --quiet
@@ -354,7 +356,7 @@ GET /demo-frozen/_search
 **Ergebnis:** Die Daten sind auch nach der Verschiebung in den Frozen Tier weiterhin erfolgreich durchsuchbar.
 
 
-### 5. Snapshot-Restore-Test
+### 5. Snapshot-Restore Test
 
 Ein manueller Snapshot wurde erstellt:
 
@@ -634,8 +636,6 @@ GET /metrics-system.*/_search
 
 ## Teil 4 – Fleet Policy ausrollen
 
-**Abgeschlossen:** 31.10.2026
-
 ### 1. Zweite Agent Policy erstellen
 
 In Kibana Fleet wurde eine zweite Agent Policy erstellt.
@@ -724,9 +724,7 @@ Die optionale Umsetzung über Fleet API oder Terraform wurde aus Zeitgründen ni
 
 ## Teil 5 – Konfiguration & Abfragen
 
-Die Antworten auf die Konfigurationsfragen, die API-Abfragen und deren Ergebnisse sind in der separaten Datei `ANTWORTEN.txt` dokumentiert.
-
-**Teil 5 vollständig abgeschlossen am 01.11.2026.**
+Die Antworten auf die Konfigurationsfragen, die API-Abfragen und deren Ergebnisse sind in der separaten Datei `ANTWORTEN.md` dokumentiert.
 
 ## Nachweise
 
@@ -744,7 +742,7 @@ Die bisherigen Prüfbefehle und beobachteten Ergebnisse sind in den jeweiligen T
 
 **Problem:** Beim ersten Start mit der Rolle `data_frozen` konnte `es03` aufgrund einer zu grossen automatisch berechneten Shared-Cache-Anforderung nicht starten.
 
-**Lösung:** Der Shared Cache wurde in Docker Compose auf 2 GB begrenzt. Die Konfiguration steht in Teil 1; die Begründung in `ANTWORTEN.txt`.
+**Lösung:** Der Shared Cache wurde in Docker Compose auf 2 GB begrenzt. Die Konfiguration steht in Teil 1; die Begründung in `ANTWORTEN.md`.
 
 **Ergebnis:** `es03` startete mit der Rolle `data_frozen` und wurde Teil des `green`-Clusters.
 
