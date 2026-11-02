@@ -880,6 +880,7 @@ In einer produktiven Umgebung würde ich diese Massnahmen zur Verbesserung der P
 ## Verwendete Anleitungen und Quellen
 ### Grundlage
 - [Docker: Installation auf Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Elastic: Offizielles Glossar](https://www.elastic.co/docs/reference/glossary)
 
 ### Teil 1
 - [Elastic: Docker Compose Installation](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose)
