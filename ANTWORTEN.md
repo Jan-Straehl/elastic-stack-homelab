@@ -2,7 +2,7 @@
 
 ## Teil 1 – Cluster mit drei Nodes und Frozen Tier
 
-### 2. Warum drei master-fähige Nodes statt zwei?
+### Warum drei master-fähige Nodes statt zwei?
 
 Elasticsearch benötigt eine Mehrheit der stimmberechtigten Master-Nodes (Quorum), um einen Master zu wählen.
 
@@ -11,13 +11,13 @@ Elasticsearch benötigt eine Mehrheit der stimmberechtigten Master-Nodes (Quorum
 
 Drei master-fähige Nodes erhöhen damit die Ausfallsicherheit des Clusters.
 
-### 3. Welche Host-Einstellungen benötigt Elasticsearch?
+### Welche Host-Einstellungen benötigt Elasticsearch?
 
 Unter Linux muss insbesondere `vm.max_map_count` ausreichend hoch sein, damit Elasticsearch genügend virtuelle Speicherbereiche verwalten kann. Auf dem Host wurde der Wert auf `1048576` gesetzt; die konkreten Befehle stehen im Abschnitt **Host-Vorbereitung**.
 
 Weitere Voraussetzungen sind ausreichend RAM und CPU, Docker Engine und Docker Compose, passende Dateiberechtigungen und Container-Limits sowie die Erreichbarkeit der Nodes untereinander.
 
-### 4. Welche Rolle spielt der Shared Cache auf dem Frozen Node?
+### Welche Rolle spielt der Shared Cache auf dem Frozen Node?
 
 Der Shared Cache speichert häufig benötigte Datenblöcke aus Searchable Snapshots lokal zwischen. Dadurch müssen diese Blöcke nicht bei jeder Suchabfrage erneut aus dem Snapshot-Repository geladen werden.
 
